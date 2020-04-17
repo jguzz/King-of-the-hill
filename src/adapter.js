@@ -17,8 +17,8 @@ class Adapter {
   updateUser(id, body) {
     return this.patch(`${this.baseUrl}/users/${id}`, body);
   }
-
   //makes a fetch quest to retrieve data
+
   get(url) {
     return fetch(url).then((res) => res.json());
   }

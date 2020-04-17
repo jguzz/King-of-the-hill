@@ -118,6 +118,7 @@ function create() {
 function update() {
   if (gameOver) {
     timedEvent.paused = true;
+    console.log(User.all);
     console.log(score, time);
     scene.stop();
   }

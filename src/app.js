@@ -1,4 +1,5 @@
 //Class for all event listeners
+
 class App {
   constructor() {
     //Adds adapter.js functionality
@@ -8,16 +9,20 @@ class App {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.createUsers = this.createUsers.bind(this);
     this.addUsers = this.addUsers.bind(this);
+    this.handlePlayClick = this.handlePlayClick.bind(this);
   }
 
   //Addds all event listeners ot the dom.
   attachEventListeners() {
     document
-      .querySelector("#users-lists")
+      .querySelector("#edit-button")
       .addEventListener("click", this.handleEditClick);
     document
       .querySelector("#update")
       .addEventListener("submit", this.handleFormSubmit);
+    document
+      .querySelector("#game")
+      .addEventListener("click", this.handlePlayClick);
   }
 
   createUsers(users) {
@@ -56,8 +61,14 @@ class App {
 
   //When edit is clicked, we render an edit form
   handleEditClick(e) {
+    console.log(e.target);
     const id = parseInt(e.target.dataset.id);
     const user = User.findById(id);
     document.querySelector("#update").innerHTML = user.renderUpdateForm();
+  }
+  handlePlayClick(e) {
+    const id = parseInt(e.target.dataset.id);
+    const user = User.findById(id);
+    document.querySelector("#game").innerHTML = user.playGame();
   }
 }
