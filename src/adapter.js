@@ -29,6 +29,8 @@ class Adapter {
       method: "PATCH",
       headers: this.headers,
       body: JSON.stringify(body),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+     .then(console.log);
   }
 }

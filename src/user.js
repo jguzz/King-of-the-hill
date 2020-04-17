@@ -10,16 +10,15 @@ class User {
   //Displays user name with edit button in a li
   renderUser() {
     return `
-	  <li>
+	 
     <h3>${this.name} 
-    <div >  
+    </h3>
+    <h4>High Score: ${this.highscore}</h4>
+
     <button id='edit-button' data-name=${this.name} data-id=${this.id}>edit</button>
-    </div>
-    <div class = 'play-button'>
-    <button id="play-button" data-id=${this.id}>Select </button>
-    </div>
-		</h3>
-	  </li>`;
+  
+   
+`;
   }
 
   //Finds user by passed in id.
@@ -44,8 +43,22 @@ class User {
   update({ name }) {
     this.name = name;
   }
+  // let flag = false
 
+  // function startGame() {
+  //   if (userClickedSelect) {
+  //     playGame() {
+  //       allthatcode
+  //     }
+  //     flag = true
+  //   } else {
+  //     playGame() {
+  //       null
+  //     }
+  //   }
+  // }
   playGame() {
+    console.log(this.name);
     var score = 0;
     var scoreText;
     var time = 30;

@@ -21,7 +21,7 @@ class App {
       .querySelector("#update")
       .addEventListener("submit", this.handleFormSubmit);
     document
-      .querySelector("#game")
+      .querySelector("#play-button")
       .addEventListener("click", this.handlePlayClick);
   }
 

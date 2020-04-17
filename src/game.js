@@ -117,9 +117,26 @@ function create() {
 }
 function update() {
   if (gameOver) {
+    const user = User.findById(3);
+    user.highscore = score;
+    app.addUsers();
+    const name = user.name;
+    const highscore = user.highscore;
+    const bodyJSON = { name, highscore };
+    console.log(bodyJSON);
+
+    fetch(`http://localhost:3000/api/v1/users/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ highscore: highscore }),
+    })
+      .then((res) => res.json())
+      .then(console.log);
     timedEvent.paused = true;
-    console.log(User.all);
-    console.log(score, time);
+    Adapter.update;
     scene.stop();
   }
   if (cursors.left.isDown) {
